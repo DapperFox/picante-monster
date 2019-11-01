@@ -6,7 +6,9 @@
  */
 
 import React from "react"
+import { theme, ThemeProvider, CSSReset } from "@chakra-ui/core"
 import PropTypes from "prop-types"
+import Nav from "./nav.js"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
@@ -24,8 +26,10 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <ThemeProvider theme={ theme }>
+      <CSSReset />
       <Header siteTitle={data.site.siteMetadata.title} />
+      <Nav />
       <div
         style={{
           margin: `0 auto`,
@@ -41,7 +45,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </ThemeProvider>
   )
 }
 
