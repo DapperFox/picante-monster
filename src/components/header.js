@@ -1,33 +1,30 @@
 import { Link } from "gatsby"
+import { Text, useTheme } from "@chakra-ui/core"
 import PropTypes from "prop-types"
 import React from "react"
+import styled from "@emotion/styled"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+const Header = ({ siteTitle }) => {
+  const theme = useTheme()
+  const StyledText = styled(Text)`
+    padding-left: 10%;
+    color: ${theme.colors.purple["800"]}
+  `
+  return (
+    <header>
+      <div>
         <Link
           to="/"
           style={{
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          <StyledText fontSize="5xl">{siteTitle}</StyledText>
         </Link>
-      </h1>
-    </div>
-  </header>
-)
+      </div>
+    </header>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
