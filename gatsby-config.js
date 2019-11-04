@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Picante Monster F2F`,
+    title: `Kuali Engineering F2F`,
     description: `All the information for the Kuali Engineering F2F`,
     author: `@kuali`,
   },

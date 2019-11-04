@@ -2,7 +2,8 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Text } from "@chakra-ui/core"
+import { Text, useTheme } from "@chakra-ui/core"
+import styled from "@emotion/styled"
 
 const flights = [
   { name: "Terry Durkin",	arrive: "10:00 AM",	depart: "2:34 PM" },
@@ -31,27 +32,44 @@ const flights = [
   { name: "Jeff Conway", arrive: "10:27AM (Tuesday)", depart: "11:30 AM" },
   { name: "Jamie Bisotti", arrive: "4:02 PM", depart: "10:05 AM" }
 ]
-const FlightsPage = () => (
+const FlightsPage = () => {
+const theme = useTheme()
+console.log(theme)
+const StyledTable = styled.table`
+  border-radius: 3px;
+`
+const StyledTr = styled.tr`
+  border 1px solid #E2E8F0;
+`
+const StyledTd = styled.td`
+  padding: 5px 10px;
+  text-align: right;
+`
+const StyledTh = styled.th`
+  text-align: right;
+`
+
+return (
   <Layout>
     <SEO title="Housing" />
     <Text fontSize="3xl">Flight Information</Text>
-      <table numRows={flights.length}>
+      <StyledTable numRows={flights.length}>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Arrive</th>
-            <th>Depart</th>
+            <StyledTh style={{ textAlign: "left" }}>Name</StyledTh>
+            <StyledTh>Arrive</StyledTh>
+            <StyledTh>Depart</StyledTh>
           </tr>
         </thead>
-        { flights.map((flight) => (
-          <tr>
-            <td>{flight.name}</td>
-            <td>{flight.arrive}</td>
-            <td>{flight.depart}</td>
-          </tr>
+          { flights.sort((flight) => flight.arrive).map((flight) => (
+          <StyledTr>
+            <StyledTd style={{ textAlign: "left" }}>{flight.name}</StyledTd>
+            <StyledTd>{flight.arrive}</StyledTd>
+            <StyledTd>{flight.depart}</StyledTd>
+          </StyledTr>
         ))}
-      </table>
+      </StyledTable>
   </Layout>
-)
+)}
 
 export default FlightsPage
