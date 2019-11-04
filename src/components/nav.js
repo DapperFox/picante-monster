@@ -21,7 +21,6 @@ export default function Nav () {
       <StyledLink as={GatsbyLink} to="/">Home</StyledLink>
       <StyledLink as={GatsbyLink} to="/housing/">Housing</StyledLink>
       <StyledLink as={GatsbyLink} to="/calendar/">Schedule</StyledLink>
-      <StyledLink as={GatsbyLink} to="/tech-talk/">Tech Talk</StyledLink>
       <StyledLink as={GatsbyLink} to="/flights/">Flights</StyledLink>
     </StyledNav>
 
